@@ -48,6 +48,6 @@ stages:
         - task: PowerShell@2
           inputs:
             targetType: 'inline'
-            script: 'cp -r /home/admin123/./* /var/www/html'
+            script: 'cp -r /home/admin123/* /var/www/html'
     
       

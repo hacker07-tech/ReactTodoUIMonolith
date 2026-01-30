@@ -22,4 +22,21 @@ stages:
               command: 'custom'
               workingDir: '$(System.DefaultWorkingDirectory)'
               customCommand: 'run build'
-  
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
+  - stage: Deploy
+    displayName: TODODeploy
+    jobs:
+      - job: 
+        steps:
+        - task: DownloadBuildArtifacts@1
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
+    
+      

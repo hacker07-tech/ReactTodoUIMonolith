@@ -1,8 +1,25 @@
-trigger: none 
+trigger: None
+
 pool: Default
 
-steps: 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'Write-Host "Hello World"'
+stages:
+  - stage: Build
+    displayName: Build creation
+    jobs:
+      - job: NodeJs
+        displayName: NodejsInstallation
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSource: 'spec'
+              versionSpec: '18.x'
+          - task: Npm@1
+            inputs:
+              command: 'ci'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customCommand: 'run build'
+  

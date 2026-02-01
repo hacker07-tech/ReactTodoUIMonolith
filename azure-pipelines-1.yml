@@ -48,7 +48,7 @@ stages:
             targetPath: '$(Pipeline.Workspace)'
         - task: CopyFilesOverSSH@0
           inputs:
-            sshEndpoint: 'VM'
+            sshEndpoint: 'VM1'
             sourceFolder: '$(Pipeline.Workspace)'
             contents: '**'
             targetFolder: '/home/admin123'

@@ -5,7 +5,7 @@ trigger:
      - feature/01
 
 pool:
- name: Default
+ name: Test_Pool
 
 stages:
   - stage: ci

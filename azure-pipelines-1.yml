@@ -27,12 +27,10 @@ stages:
              command: 'custom'
              workingDir: '$(System.DefaultWorkingDirectory)'
              customCommand: 'run build'
-         - task: PublishBuildArtifacts@1
+         - task: PublishPipelineArtifact@1
            inputs:
-             PathtoPublish: '$(build.ArtifactStagingDirectory)'
-             ArtifactName: 'drop'
-             publishLocation: 'Container'
-  
-
+             targetPath: '$(Pipeline.Workspace)'
+             artifact: 'drop'
+             publishLocation: 'pipeline'
   # - stage: cd
   #   displayName: Deploy

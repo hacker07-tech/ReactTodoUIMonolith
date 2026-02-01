@@ -1,8 +1,8 @@
-trigger:
- branches:
-   include:
-     - main
-     - feature/01
+trigger: none
+#  branches:
+#    include:
+#      - main
+#      - feature/01
 
 pool:
  name: Test_Pool
@@ -32,5 +32,18 @@ stages:
              targetPath: '$(Pipeline.Workspace)'
              artifact: 'drop'
              publishLocation: 'pipeline'
-  # - stage: cd
-  #   displayName: Deploy
+
+# -----------------------CD_Part-------------------------
+
+  - stage: cd
+    displayName: Deploy
+    jobs:
+      - job: 
+        displayName: DeployeTODO
+        steps:
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'current'
+            artifactName: 'drop'
+            targetPath: '$(Pipeline.Workspace)'
+        

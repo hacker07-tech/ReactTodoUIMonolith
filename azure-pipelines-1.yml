@@ -51,7 +51,7 @@ stages:
             sshEndpoint: 'VM1'
             sourceFolder: '$(System.ArtifactsDirectory)'
             contents: '**'
-            targetFolder: '/home/admin123/test'
+            targetFolder: '/home/admin123'
             readyTimeout: '20000'
         - task: SSH@0
           inputs:

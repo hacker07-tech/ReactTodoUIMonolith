@@ -51,6 +51,6 @@ stages:
             sshEndpoint: 'VM1'
             sourceFolder: '$(Pipeline.Workspace)'
             contents: '**'
-            targetFolder: '/home/admin123'
+            targetFolder: '/home/admin123/test'
             readyTimeout: '20000'
         

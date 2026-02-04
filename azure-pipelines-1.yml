@@ -59,7 +59,7 @@ stages:
             runOptions: 'commands'
             commands: |
               sudo apt-get update
-              sudo apt-get install nginx - y
-              cp -r /home/admin123/test/build/* /var/www/html
+              sudo apt-get install nginx -y
+              sudo cp -r /home/admin123/test/build/* /var/www/html/
             readyTimeout: '20000'
         

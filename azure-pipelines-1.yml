@@ -53,4 +53,13 @@ stages:
             contents: '**'
             targetFolder: '/home/admin123/test'
             readyTimeout: '20000'
+        - task: SSH@0
+          inputs:
+            sshEndpoint: 'VM1'
+            runOptions: 'commands'
+            commands: |
+              sudo apt-get update
+              sudo apt-get install nginx - y
+              cp -r /home/admin123/test/build/* /var/www/html
+            readyTimeout: '20000'
         

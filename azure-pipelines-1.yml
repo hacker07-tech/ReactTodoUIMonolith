@@ -58,6 +58,7 @@ stages:
             sshEndpoint: 'VM1'
             runOptions: 'commands'
             commands: |
+              export DEBIAN_FRONTEND=noninteractive
               sudo apt-get update
               sudo apt-get install nginx -y
               sudo cp -r /home/admin123/test/build/* /var/www/html/

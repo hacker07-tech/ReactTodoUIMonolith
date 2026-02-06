@@ -46,13 +46,13 @@ stages:
             buildType: 'current'
             artifactName: 'drop'
             targetPath: '$(System.ArtifactsDirectory)'
-#         - task: CopyFilesOverSSH@0
-#           inputs:
-#             sshEndpoint: 'VM1'
-#             sourceFolder: '$(System.ArtifactsDirectory)/drop'
-#             contents: '**'
-#             targetFolder: '/home/admin123/Test'
-#             readyTimeout: '20000'
+        - task: CopyFilesOverSSH@0
+          inputs:
+            sshEndpoint: 'VM1'
+            sourceFolder: '$(System.ArtifactsDirectory)/drop'
+            contents: '**'
+            targetFolder: '/home/admin123/Test'
+            readyTimeout: '20000'
 #         - task: SSH@0
 #           inputs:
 #             sshEndpoint: 'VM1'

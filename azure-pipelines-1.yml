@@ -18,10 +18,10 @@ stages:
            inputs:
              versionSource: 'spec'
              versionSpec: '18.x'
-#          - task: Npm@1
-#            inputs:
-#              command: 'install'
-#              workingDir: '$(System.DefaultWorkingDirectory)'
+         - task: Npm@1
+           inputs:
+             command: 'install'
+             workingDir: '$(System.DefaultWorkingDirectory)'
 #          - task: Npm@1
 #            inputs:
 #              command: 'custom'

@@ -27,11 +27,11 @@ stages:
              command: 'custom'
              workingDir: '$(System.DefaultWorkingDirectory)'
              customCommand: 'run build'
-#          - task: PublishPipelineArtifact@1
-#            inputs:
-#              targetPath: build
-#              artifact: 'drop'
-#              publishLocation: 'pipeline'
+         - task: PublishPipelineArtifact@1
+           inputs:
+             targetPath: build
+             artifact: 'drop'
+             publishLocation: 'pipeline'
 
 # # -----------------------CD_Part-------------------------
 

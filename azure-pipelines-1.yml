@@ -49,7 +49,7 @@ stages:
         - task: CopyFilesOverSSH@0
           inputs:
             sshEndpoint: 'VM1'
-            sourceFolder: '$(System.ArtifactsDirectory)/drop'
+            sourceFolder: '$(System.ArtifactsDirectory)'
             contents: '**'
             targetFolder: '/home/admin123/Test'
             readyTimeout: '20000'

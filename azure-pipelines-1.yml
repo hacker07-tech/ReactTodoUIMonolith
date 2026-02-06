@@ -53,14 +53,14 @@ stages:
             contents: '**'
             targetFolder: '/home/admin123/Test'
             readyTimeout: '20000'
-#         - task: SSH@0
-#           inputs:
-#             sshEndpoint: 'VM1'
-#             runOptions: 'commands'
-#             commands: |
-#               export DEBIAN_FRONTEND=noninteractive
-#               sudo apt-get update
-#               sudo apt-get install nginx -y
-#               sudo cp -r /home/admin123/test/build/* /var/www/html/
-#             readyTimeout: '20000'
+        - task: SSH@0
+          inputs:
+            sshEndpoint: 'VM1'
+            runOptions: 'commands'
+            commands: |
+              export DEBIAN_FRONTEND=noninteractive
+              sudo apt-get update
+              sudo apt-get install nginx -y
+              sudo cp -r /home/admin123/Test/* /var/www/html/
+            readyTimeout: '20000'
         

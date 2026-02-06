@@ -58,9 +58,9 @@ stages:
             sshEndpoint: 'VM1'
             runOptions: 'commands'
             commands: |
-              export DEBIAN_FRONTEND=noninteractive
-              sudo apt-get update
-              sudo apt-get install nginx -y
+              sudo apt-get update -y
+              sudo DEBIAN_FRONTEND=noninteractive 
+              apt-get install -y nginx
               sudo cp -r /home/admin123/Test/* /var/www/html/
             readyTimeout: '20000'
         

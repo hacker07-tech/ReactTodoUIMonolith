@@ -35,17 +35,17 @@ stages:
 
 # # -----------------------CD_Part-------------------------
 
-#   - stage: cd
-#     displayName: Deploy
-#     jobs:
-#       - job: 
-#         displayName: DeployeTODO
-#         steps:
-#         - task: DownloadPipelineArtifact@2
-#           inputs:
-#             buildType: 'current'
-#             artifactName: 'drop'
-#             targetPath: '$(System.ArtifactsDirectory)'
+  - stage: cd
+    displayName: Deploy
+    jobs:
+      - job: 
+        displayName: DeployeTODO
+        steps:
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'current'
+            artifactName: 'drop'
+            targetPath: '$(System.ArtifactsDirectory)'
 #         - task: CopyFilesOverSSH@0
 #           inputs:
 #             sshEndpoint: 'VM1'

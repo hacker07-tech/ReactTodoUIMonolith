@@ -18,49 +18,49 @@ stages:
            inputs:
              versionSource: 'spec'
              versionSpec: '18.x'
-         - task: Npm@1
-           inputs:
-             command: 'install'
-             workingDir: '$(System.DefaultWorkingDirectory)'
-         - task: Npm@1
-           inputs:
-             command: 'custom'
-             workingDir: '$(System.DefaultWorkingDirectory)'
-             customCommand: 'run build'
-         - task: PublishPipelineArtifact@1
-           inputs:
-             targetPath: '$(System.ArtifactsDirectory)'
-             artifact: 'drop'
-             publishLocation: 'pipeline'
+#          - task: Npm@1
+#            inputs:
+#              command: 'install'
+#              workingDir: '$(System.DefaultWorkingDirectory)'
+#          - task: Npm@1
+#            inputs:
+#              command: 'custom'
+#              workingDir: '$(System.DefaultWorkingDirectory)'
+#              customCommand: 'run build'
+#          - task: PublishPipelineArtifact@1
+#            inputs:
+#              targetPath: build
+#              artifact: 'drop'
+#              publishLocation: 'pipeline'
 
-# -----------------------CD_Part-------------------------
+# # -----------------------CD_Part-------------------------
 
-  - stage: cd
-    displayName: Deploy
-    jobs:
-      - job: 
-        displayName: DeployeTODO
-        steps:
-        - task: DownloadPipelineArtifact@2
-          inputs:
-            buildType: 'current'
-            artifactName: 'drop'
-            targetPath: '$(System.ArtifactsDirectory)'
-        - task: CopyFilesOverSSH@0
-          inputs:
-            sshEndpoint: 'VM1'
-            sourceFolder: '$(System.ArtifactsDirectory)/drop'
-            contents: '**'
-            targetFolder: '/home/admin123/Test'
-            readyTimeout: '20000'
-        - task: SSH@0
-          inputs:
-            sshEndpoint: 'VM1'
-            runOptions: 'commands'
-            commands: |
-              export DEBIAN_FRONTEND=noninteractive
-              sudo apt-get update
-              sudo apt-get install nginx -y
-              sudo cp -r /home/admin123/test/build/* /var/www/html/
-            readyTimeout: '20000'
+#   - stage: cd
+#     displayName: Deploy
+#     jobs:
+#       - job: 
+#         displayName: DeployeTODO
+#         steps:
+#         - task: DownloadPipelineArtifact@2
+#           inputs:
+#             buildType: 'current'
+#             artifactName: 'drop'
+#             targetPath: '$(System.ArtifactsDirectory)'
+#         - task: CopyFilesOverSSH@0
+#           inputs:
+#             sshEndpoint: 'VM1'
+#             sourceFolder: '$(System.ArtifactsDirectory)/drop'
+#             contents: '**'
+#             targetFolder: '/home/admin123/Test'
+#             readyTimeout: '20000'
+#         - task: SSH@0
+#           inputs:
+#             sshEndpoint: 'VM1'
+#             runOptions: 'commands'
+#             commands: |
+#               export DEBIAN_FRONTEND=noninteractive
+#               sudo apt-get update
+#               sudo apt-get install nginx -y
+#               sudo cp -r /home/admin123/test/build/* /var/www/html/
+#             readyTimeout: '20000'
         

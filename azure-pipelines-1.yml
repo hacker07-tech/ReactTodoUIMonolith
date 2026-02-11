@@ -59,8 +59,7 @@ stages:
             runOptions: 'commands'
             commands: |
               sudo apt-get update -y
-              sudo DEBIAN_FRONTEND=noninteractive 
-              apt-get install -y nginx
+              sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nginx
               sudo cp -r /home/admin123/Test/* /var/www/html/
             readyTimeout: '20000'
         

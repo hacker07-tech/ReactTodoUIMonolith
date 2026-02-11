@@ -14,10 +14,10 @@ stages:
       - job: JavaBuild
         displayName: Build ho rha hai
         steps:
-         - task: NodeTool@0
-           inputs:
-             versionSource: 'spec'
-             versionSpec: '18.x'
+        #  - task: NodeTool@0
+        #    inputs:
+        #      versionSource: 'spec'
+        #      versionSpec: '18.x'
          - task: Npm@1
            inputs:
              command: 'install'
